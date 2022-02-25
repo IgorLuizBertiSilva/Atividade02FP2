@@ -43,6 +43,35 @@
                 </p:panelGrid>
             </div>
             
+            <div class="card">
+            <p:dataTable id="tabela" var="pessoa" value="#{exemploController.pessoas}"
+                         rowKey="#{pessoa.nome}" 
+                         selection="#{exemploController.pessoa}" selectionMode="single">
+                <f:facet name="header" >
+                    Pessoas Cadastradas.
+                </f:facet>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{pessoa.nome}"></h:outputText>
+                </p:column>
+                <p:column headerText="Data Nascimento">
+                    <h:outputText value="#{pessoa.dataNascimento}"></h:outputText>
+                </p:column>
+                <p:column headerText="Status">
+                    <h:outputText value="#{pessoa.status}"></h:outputText>
+                </p:column>
+                <p:column headerText="UF">
+                    <h:outputText value="#{pessoa.uf}"></h:outputText>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton value="Enxcluir" action="#{exemploController.excluir()}"
+                                     update="tabela" 
+                                     styleClass="rounded-button ui-button-raised ui-button-danger" 
+                                     icon="pi pi-trash"/>
+                </f:facet>
+                
+            </p:dataTable>
+            </div>
+            
         </h:form>
 
 
@@ -61,25 +90,7 @@
             </h:form>
         </div>-->
         <br></br>
-        <div class="card">
-            <p:dataTable id="tabela" var="pessoa" value="#{exemploController.pessoas}">
-                <f:facet name="header" >
-                    Pessoas Cadastradas.
-                </f:facet>
-                <p:column headerText="Nome">
-                    <h:outputText value="#{pessoa.nome}"></h:outputText>
-                </p:column>
-                <p:column headerText="Data Nascimento">
-                    <h:outputText value="#{pessoa.dataNascimento}"></h:outputText>
-                </p:column>
-                <p:column headerText="Status">
-                    <h:outputText value="#{pessoa.status}"></h:outputText>
-                </p:column>
-                <p:column headerText="UF">
-                    <h:outputText value="#{pessoa.uf}"></h:outputText>
-                </p:column>
-            </p:dataTable>
-        </div>
+        
     </h:body>
 </html>
 
