@@ -42,7 +42,16 @@ public class ExemploController implements Serializable{
         this.pessoas = pessoas;
     }
 
-
+    public void excluir(){
+        for (Pessoa pessoa1 : pessoas) {
+            System.out.println(pessoa);
+            System.out.println(pessoa1);
+            if(pessoa1.getNome().equals(pessoa.getNome())){
+                pessoas.remove(pessoa1);
+                return;
+            }
+        }
+    }
 
 
     public void adicionar(){
@@ -78,6 +87,7 @@ public class ExemploController implements Serializable{
                 addMessage(null, new FacesMessage(severity, summary, detail));
     }
 
+    
     
     
 }
