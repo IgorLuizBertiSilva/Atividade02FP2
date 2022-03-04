@@ -5,6 +5,7 @@
 package br.edu.ifsp.pep.dao;
 
 import br.edu.ifsp.pep.model.Pessoa;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,6 +22,11 @@ public class PessoaDAO {
 
     public void inserir(Pessoa pessoa){
         em.persist(pessoa);
+    }
+
+    public List<Pessoa> findAll(){
+        return em.createNamedQuery("SELECT p FROM Pessoa p", Pessoa.class)
+        .getResultList();
     }
 
 }
