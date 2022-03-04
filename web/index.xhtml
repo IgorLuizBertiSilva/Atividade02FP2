@@ -16,6 +16,9 @@
             <p:growl id="growl" showDetail="true" />
             
             <div class="card">
+                <p:messages id="messages" showDetail="false" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
                 <h5>Cadastro de Pessoa</h5>
                 <p:panelGrid columns="4" layout="flex"
                              columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
@@ -58,13 +61,13 @@
                 <f:facet name="header" >
                     Pessoas Cadastradas.
                 </f:facet>
-                <p:column headerText="Nome">
+                <p:column headerText="Nome" filterBy="#{pessoa.nome}" sortBy="#{pessoa.nome}" filterMatchMode="contains">
                     <h:outputText value="#{pessoa.nome}"></h:outputText>
                 </p:column>
-                <p:column headerText="Data Nascimento">
+                <p:column headerText="Data Nascimento" sortBy="#{pessoa.dataNascimento}">
                     <h:outputText value="#{pessoa.dataNascimento}"></h:outputText>
                 </p:column>
-                <p:column headerText="Status">
+                <p:column headerText="Status" filterBy="#{pessoa.status}">
                     <h:outputText value="#{pessoa.status}"></h:outputText>
                 </p:column>
                 <p:column headerText="UF">
