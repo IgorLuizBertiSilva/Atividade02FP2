@@ -52,7 +52,8 @@ public class ExemploController implements Serializable{
 
     public List<Pessoa> getPessoas() {
 //        return pessoas;
-        return null;
+        System.out.println("Carregando...");
+        return pessoaDAO.findAll();
     }
 //
 //    public void setPessoas(List<Pessoa> pessoas) {
@@ -62,6 +63,7 @@ public class ExemploController implements Serializable{
     public void excluir(){
         
         System.out.println("Metodo Excluir");
+        
 //        if (pessoaSelecionada != null) {
 //            for (Pessoa pessoa1 : pessoas) {
 //                System.out.println(pessoa);

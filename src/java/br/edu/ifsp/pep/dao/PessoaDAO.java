@@ -25,8 +25,12 @@ public class PessoaDAO {
     }
 
     public List<Pessoa> findAll(){
-        return em.createNamedQuery("SELECT p FROM Pessoa p", Pessoa.class)
+        return em.createQuery("SELECT p FROM Pessoa p", Pessoa.class)
         .getResultList();
     }
+
+    public void remove(Pessoa p){
+        em.remove(p);
+    }  
 
 }
