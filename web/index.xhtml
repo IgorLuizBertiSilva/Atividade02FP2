@@ -21,32 +21,40 @@
                              columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
                              contentStyleClass="p-align-baseline ui-fluid">
                     <p:outputLabel for="nome" value="Nome"/>
-                    <p:inputText id="nome" value="#{exemploController.pessoa.nome}"/>
+                    <p:inputText id="nome" 
+                                 value="#{exemploController.pessoa.nome}" 
+                                 required="true"
+                                 requiredMessage="Informe o Nome."/>
 
                     <p:outputLabel for="date" value="Data de Nascimento"/>
-                    <p:datePicker id="date" showIcon="true" style="width:auto" value="#{exemploController.pessoa.dataNascimento}"/>
-
-                    <p:selectBooleanButton onLabel="Ativo" offLabel="Inativo"
+                    <p:datePicker id="date" showIcon="true" style="width:auto" value="#{exemploController.pessoa.dataNascimento}" 
+                                  required="true" requiredMessage="Informe a data de Nascimento"/>
+                    
+                    
+                    <p:outputLabel for="status" value="Status"/>
+                    <p:selectBooleanButton id="status" onLabel="Ativo" offLabel="Inativo"
                                 onIcon="pi pi-check" offIcon="pi pi-times" style="width:6rem" 
                                 value="#{exemploController.pessoa.status}"/>
                     
                     <p:outputLabel for="uf" value="UF" />
-                    <p:selectOneMenu id="uf" value="#{exemploController.pessoa.uf}">
+                    <p:selectOneMenu id="uf" value="#{exemploController.pessoa.uf}" 
+                                     required="true" requiredMessage="Infome o estado">
                         <f:selectItem itemLabel="Selecione" itemValue="" />
                         <f:selectItem itemLabel="SP" itemValue="SP" />
                         <f:selectItem itemLabel="PR" itemValue="PR" />
                         <f:selectItem itemLabel="MS" itemValue="MS" />
                     </p:selectOneMenu>
 
-                    <p:commandButton value="Adicionar" action="#{exemploController.adicionar()}" update="tabela, formulario"
+                    <p:commandButton value="Adicionar" action="#{exemploController.adicionar()}" update="formulario, growl formTabela:tabela"
                                      styleClass="p-mr-2" style="width: auto"/>
                 </p:panelGrid>
             </div>
-            
+        </h:form>
+        <h:form id="formTabela">
             <div class="card">
             <p:dataTable id="tabela" var="pessoa" value="#{exemploController.pessoas}"
                          rowKey="#{pessoa.nome}" 
-                         selection="#{exemploController.pessoa}" selectionMode="single">
+                         selection="#{exemploController.pessoaSelecionada}" selectionMode="single">
                 <f:facet name="header" >
                     Pessoas Cadastradas.
                 </f:facet>
@@ -64,9 +72,11 @@
                 </p:column>
                 <f:facet name="footer">
                     <p:commandButton value="Enxcluir" action="#{exemploController.excluir()}"
-                                     update="tabela" 
+                                     update="tabela formulario:growl" 
                                      styleClass="rounded-button ui-button-raised ui-button-danger" 
-                                     icon="pi pi-trash"/>
+                                     icon="pi pi-trash"
+                                     
+                                     />
                 </f:facet>
                 
             </p:dataTable>
@@ -74,21 +84,6 @@
             
         </h:form>
 
-
-        
-        
-<!--        <div class="card">
-            <h:form>
-                <h1>Hello Word!!</h1>
-                <p:inputText value="# {exemploController.pessoa.nome}" />
-                <br></br>
-                <br></br>
-                <br></br>
-                <p:commandButton value="Adicionar" action="# {exemploController.adicionar()}" update="tabela" />
-                <p:commandButton value="Exibir" action="# {exemploController.exibir()}" />  
-                
-            </h:form>
-        </div>-->
         <br></br>
         
     </h:body>

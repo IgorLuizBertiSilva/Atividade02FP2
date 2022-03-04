@@ -25,6 +25,17 @@ public class ExemploController implements Serializable{
 
     private Pessoa pessoa;
     private List<Pessoa> pessoas = new ArrayList<>();
+    private Pessoa pessoaSelecionada;
+
+    public Pessoa getPessoaSelecionada() {
+        return pessoaSelecionada;
+    }
+
+    public void setPessoaSelecionada(Pessoa pessoaSelecionada) {
+        this.pessoaSelecionada = pessoaSelecionada;
+    }
+
+
 
     public Pessoa getPessoa() {
         return pessoa;
@@ -43,14 +54,26 @@ public class ExemploController implements Serializable{
     }
 
     public void excluir(){
-        for (Pessoa pessoa1 : pessoas) {
-            System.out.println(pessoa);
-            System.out.println(pessoa1);
-            if(pessoa1.getNome().equals(pessoa.getNome())){
-                pessoas.remove(pessoa1);
-                return;
+        
+        System.out.println("Metodo Excluir");
+        if (pessoaSelecionada != null) {
+            for (Pessoa pessoa1 : pessoas) {
+                System.out.println(pessoa);
+                System.out.println(pessoa1);
+                if(pessoa1.getNome().equals(pessoaSelecionada.getNome())){
+                    pessoas.remove(pessoa1);
+                    addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Pessoa excluida");
+                    return;
+                }
             }
+            addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Pessoa não apagada");
+        }else{
+            addMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Pessoa Não selecionada");
+            return;
         }
+        
+
+        
     }
 
 
