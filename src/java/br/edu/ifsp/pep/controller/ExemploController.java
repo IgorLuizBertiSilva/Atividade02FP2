@@ -86,6 +86,7 @@ public class ExemploController implements Serializable{
         System.out.println("Nome: " + this.pessoa.getNome());
         //this.pessoas.add(pessoa);
         pessoaDAO.inserir(pessoa);
+        this.pessoas = null;
         this.pessoa = new Pessoa();
 
         addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Cadastro Realizado");             
