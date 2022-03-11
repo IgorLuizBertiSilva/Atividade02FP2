@@ -29,7 +29,7 @@ public class ExemploController implements Serializable{
     private PessoaDAO pessoaDAO;
 
     private Pessoa pessoa;
-    //private List<Pessoa> pessoas = new ArrayList<>();
+    private List<Pessoa> pessoas;
     private Pessoa pessoaSelecionada;
 
     public Pessoa getPessoaSelecionada() {
@@ -52,8 +52,13 @@ public class ExemploController implements Serializable{
 
     public List<Pessoa> getPessoas() {
 //        return pessoas;
-        System.out.println("Carregando...");
+        if(this.pessoas == null){
+           System.out.println("Carregando...");
+           this.pessoas = pessoaDAO.findAll();
+        }
+
         return pessoaDAO.findAll();
+ 
     }
 //
 //    public void setPessoas(List<Pessoa> pessoas) {
