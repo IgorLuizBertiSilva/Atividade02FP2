@@ -62,24 +62,14 @@ public class ExemploController implements Serializable{
 
     public void excluir(){
         
-        System.out.println("Metodo Excluir");
-        
-//        if (pessoaSelecionada != null) {
-//            for (Pessoa pessoa1 : pessoas) {
-//                System.out.println(pessoa);
-//                System.out.println(pessoa1);
-//                if(pessoa1.getNome().equals(pessoaSelecionada.getNome())){
-//                    pessoas.remove(pessoa1);
-//                    addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Pessoa excluida");
-//                    return;
-//                }
-//            }
-//            addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Pessoa não apagada");
-//        }else{
-//            addMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Pessoa Não selecionada");
-//            return;
-//        }
-        
+        if (pessoaSelecionada != null) {
+            System.out.println("Metodo Excluir");
+            pessoaDAO.remove(pessoaSelecionada);
+            addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Pessoa excluida");
+        }else{
+            addMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Pessoa Não selecionada");
+            return;
+        }
 
         
     }

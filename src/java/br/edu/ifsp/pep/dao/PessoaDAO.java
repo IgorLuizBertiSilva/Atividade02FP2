@@ -30,6 +30,11 @@ public class PessoaDAO {
     }
 
     public void remove(Pessoa p){
+        System.out.println(p);
+        
+        if(!em.contains(p)){
+            p = em.merge(p);
+        }
         em.remove(p);
     }  
 
