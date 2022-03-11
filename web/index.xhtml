@@ -7,6 +7,7 @@
     <h:head>
         <title>Titulo</title>
         <h:outputStylesheet name="/css/primeflex.min.css" />
+        <h:outputStylesheet name="/css/estilo.css" />
     </h:head>
     <h:body>
         
@@ -58,24 +59,27 @@
             <p:dataTable id="tabela" var="pessoa" value="#{exemploController.pessoas}"
                          rowKey="#{pessoa.nome}" 
                          selection="#{exemploController.pessoaSelecionada}" selectionMode="single"
+                         stripedRows="true"
                          paginator="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          currentPageReportTemplate="{startRecord} - {endRecord} de {totalRecords} registros"
                          rows="3"
-                         rowsPerPageTemplate="3 ,5,10">
+                         rowsPerPageTemplate="3 ,5,10"
+                         reflow="true">
                 <f:facet name="header" >
                     Pessoas Cadastradas.
                 </f:facet>
-                <p:column headerText="Nome" filterBy="#{pessoa.nome}" sortBy="#{pessoa.nome}" filterMatchMode="contains">
+                <p:column headerText="Nome" filterBy="#{pessoa.nome}" sortBy="#{pessoa.nome}" 
+                          filterMatchMode="contains">
                     <h:outputText value="#{pessoa.nome}"></h:outputText>
                 </p:column>
-                <p:column headerText="Data Nascimento" sortBy="#{pessoa.dataNascimento}">
+                <p:column headerText="Data Nascimento" sortBy="#{pessoa.dataNascimento}" >
                     <h:outputText value="#{pessoa.dataNascimento}"></h:outputText>
                 </p:column>
-                <p:column headerText="Status" filterBy="#{pessoa.status}">
+                <p:column headerText="Status" filterBy="#{pessoa.status}" >
                     <h:outputText value="#{pessoa.status}"></h:outputText>
                 </p:column>
-                <p:column headerText="UF">
+                <p:column headerText="UF" >
                     <h:outputText value="#{pessoa.uf}"></h:outputText>
                 </p:column>
                 <f:facet name="footer">

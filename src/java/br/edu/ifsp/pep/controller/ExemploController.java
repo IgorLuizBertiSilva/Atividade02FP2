@@ -71,6 +71,7 @@ public class ExemploController implements Serializable{
             System.out.println("Metodo Excluir");
             pessoaDAO.remove(pessoaSelecionada);
             addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Pessoa excluida");
+            this.pessoas = null;
         }else{
             addMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Pessoa Não selecionada");
             return;
@@ -84,9 +85,9 @@ public class ExemploController implements Serializable{
 
         System.out.println("Executou o método adicionar");
         System.out.println("Nome: " + this.pessoa.getNome());
-        //this.pessoas.add(pessoa);
         pessoaDAO.inserir(pessoa);
-        this.pessoas = null;
+        this.pessoas.add(pessoa);
+        //this.pessoas = null; // Metodo mais lento
         this.pessoa = new Pessoa();
 
         addMessage(FacesMessage.SEVERITY_INFO, "Informação", "Cadastro Realizado");             
