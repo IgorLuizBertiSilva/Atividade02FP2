@@ -13,6 +13,10 @@ body .ui-datatable.ui-datatable-striped .ui-datatable-data > tr.ui-datatable-odd
     
 }
 
+.tabela{
+    padding: 2%;
+}
+
 
 
 body{
