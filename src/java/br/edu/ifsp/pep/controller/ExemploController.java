@@ -5,6 +5,7 @@
 package br.edu.ifsp.pep.controller;
 
 import br.edu.ifsp.pep.dao.PessoaDAO;
+import br.edu.ifsp.pep.dao.ProdutoDAO;
 import br.edu.ifsp.pep.model.Pessoa;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,6 +28,9 @@ public class ExemploController implements Serializable{
 
     @Inject
     private PessoaDAO pessoaDAO;
+    
+    @Inject
+    private ProdutoDAO produtoDAO;
 
     private Pessoa pessoa;
     private List<Pessoa> pessoas;

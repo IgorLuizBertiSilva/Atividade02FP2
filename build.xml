@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="aula1-fp2" default="default" basedir=".">
-    <description>Builds, tests, and runs the project aula1-fp2.</description>
+<project name="atividade02FP2" default="default" basedir=".">
+    <description>Builds, tests, and runs the project atividade02FP2.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 
