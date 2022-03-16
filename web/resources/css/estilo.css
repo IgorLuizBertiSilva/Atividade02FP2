@@ -5,15 +5,22 @@ body .ui-datatable.ui-datatable-striped .ui-datatable-data > tr.ui-datatable-odd
 }
 
 .card {
-    background-color: #98be7c;
+    background-color: lightblue;
     margin: 10px 20px;
     padding: 1px 20px;
     border-bottom: 7px solid activeborder;
     border-radius: 5px; 
+    
 }
+
+
 
 body{
     font-family: fantasy;
     background-color: #b68e8e;
+}
+
+body .ui-widget{
+    font-family: fantasy;
 }
 
