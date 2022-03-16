@@ -10,32 +10,69 @@
         <h:outputStylesheet name="/css/estilo.css" />
     </h:head>
     <h:body>
+
         <div class="card">
-            <h2>Vertical Layout</h2>
-            <div class="ui-fluid">
-                <div class="p-field">
-                    <label for="firstname">Firstname</label>
-                    <p:inputText id="firstname" type="text" />
+
+
+            <h:form id="formulario">
+                <h2>Vertical Layout</h2>
+                <div class="ui-fluid">
+
+                    <p:growl id="growl" showDetail="true" />
+                    <div class="p-field">
+                        <p:outputLabel for="nome" value="Nome"/>
+                        <p:inputText id="nome" type="text" 
+                                     value="#{exemploController.produto.nome}"
+                                     required="true"
+                                     requiredMessage="Informe o Nome."/>
+                    </div>
+                    <div class="p-field">
+                        <p:outputLabel for="descricao" value="Descrição"/>
+                        <p:inputText id="descricao" type="text" 
+                                     value="#{exemploController.produto.descricao}"
+                                     required="true"
+                                     requiredMessage="Informe a Descricao."/>
+                    </div>
+                    <div class="p-field">
+                        <p:outputLabel for="valor" value="Valor"/>
+                        <p:inputText id="valor" type="number" 
+                                     value="#{exemploController.produto.valor}"
+                                     required="true"
+                                     requiredMessage="Informe o Valor."/>
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="rating" value="Rating"/>
+                        <p:inputText id="rating" type="number" 
+                                     value="#{exemploController.produto.rating}"
+                                     required="true"
+                                     requiredMessage="Informe o Rating."/>
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="categoria" value="Categoria"/>
+                        <p:inputText id="categoria" type="text" 
+                                     value="#{exemploController.produto.categoria}"
+                                     required="true"
+                                     requiredMessage="Informe o Categoria."/>
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="imagem" value="Imagem"/>
+                        <p:inputText id="imagem" type="text" 
+                                     value="#{exemploController.produto.imagem}"
+                                     required="true"
+                                     requiredMessage="Informe o Imagem."/>
+                    </div>
+                    <div class="p-field">
+                        <p:commandButton value="Adicionar" action="#{exemploController.adicionar()}" update="growl"
+                                         styleClass="p-mr-2" style="width: auto"/>
+                    </div>
+
                 </div>
-                <div class="p-field">
-                    <label for="lastname">Lastname</label>
-                    <p:inputText id="lastname" type="text" />
-                </div>
-            </div>
+            </h:form>
         </div>
-        <div class="card">
-            <h2>Vertical and Grid</h2>
-            <div class="ui-fluid p-formgrid p-grid">
-                <div class="p-field p-col">
-                    <label for="firstname">Firstname</label>
-                    <p:inputText id="firstname" type="text" />
-                </div>
-                <div class="p-field p-col">
-                    <label for="lastname">Lastname</label>
-                    <p:inputText id="lastname" type="text" />
-                </div>
-            </div>
-        </div>
+
     </h:body>
 </html>
 
